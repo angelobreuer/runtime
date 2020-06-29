@@ -405,7 +405,7 @@ namespace System.Net.Http
                 _status = status;
             }
 
-            public override bool CanRead => !_reader.IsDisposed;
+            public override bool CanRead => _status != null || _reader != null;
             public override bool CanSeek => false;
             public override bool CanWrite => false;
             public override long Length => throw new NotSupportedException();
